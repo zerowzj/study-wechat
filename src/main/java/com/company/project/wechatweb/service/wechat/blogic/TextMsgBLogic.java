@@ -1,7 +1,6 @@
-package com.company.project.wechatweb.wechat.blogic;
+package com.company.project.wechatweb.service.wechat.blogic;
 
-import com.company.project.wechatweb.common.blogic.BaseBLogic;
-import com.company.project.wechatweb.msg.TextMsg;
+import com.company.project.wechatweb.service.wechat.msg.TextMsg;
 import org.springframework.stereotype.Component;
 
 /**

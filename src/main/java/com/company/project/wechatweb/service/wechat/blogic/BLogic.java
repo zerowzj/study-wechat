@@ -1,6 +1,6 @@
-package com.company.project.wechatweb.wechat.blogic;
+package com.company.project.wechatweb.service.wechat.blogic;
 
-import com.company.project.wechatweb.wechat.msg.Msg;
+import com.company.project.wechatweb.service.wechat.msg.Msg;
 
 /**
  * 业务逻辑

@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.wechat.msg;
+package com.company.project.wechatweb.service.wechat.msg;
 
 /**
  * 文本消息
