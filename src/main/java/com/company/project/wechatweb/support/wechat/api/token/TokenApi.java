@@ -1,7 +1,7 @@
 package com.company.project.wechatweb.support.wechat.api.token;
 
 import com.company.project.wechatweb.support.util.JsonUtil;
-import com.company.project.wechatweb.support.util.WechatConfig;
+import com.company.project.wechatweb.support.util.WechatCfg;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
@@ -45,8 +45,8 @@ public class TokenApi {
         //生成参数
         Map<String, String> params = Maps.newHashMap();
         params.put("grant_type", "client_credential");
-        params.put("appid", WechatConfig.getAppId());
-        params.put("secret", WechatConfig.getSecret());
+        params.put("appid", WechatCfg.getAppId());
+        params.put("secret", WechatCfg.getSecret());
         //
         LOGGER.info("获取Token==>{}", JsonUtil.toJson(params));
         HttpRequest request = HttpRequest.get(URL, params, false);

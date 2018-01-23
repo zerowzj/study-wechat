@@ -3,7 +3,7 @@ package com.company.project.wechatweb.web;
 import com.company.project.wechatweb.service.wechat.blogic.BLogic;
 import com.company.project.wechatweb.service.wechat.msg.Msg;
 import com.company.project.wechatweb.support.util.HttpServlets;
-import com.company.project.wechatweb.support.util.XmlUtil;
+import com.company.project.wechatweb.support.util.XStreamUtil;
 import com.company.project.wechatweb.support.wechat.msg.MsgParser;
 import com.company.project.wechatweb.support.wechat.route.RouteFactory;
 import com.company.project.wechatweb.support.wechat.route.RouteKeys;
@@ -49,7 +49,7 @@ public class WechatApi implements ApplicationContextAware {
             BLogic bLogic = getBLogic(name);
             Class clazz = AopUtils.getTargetClass(bLogic);
             //执行业务
-            Msg msg = XmlUtil.fromXML(xmlBody, getMsgClazz(clazz));
+            Msg msg = XStreamUtil.fromXML(xmlBody, getMsgClazz(clazz));
             bLogic.doBusiness(msg);
         } catch (Exception ex) {
             throw ex;

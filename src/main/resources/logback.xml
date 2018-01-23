@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="PROJECT_NAME" value="wechat-web"/>
+    <property name="PROJECT_NAME" value="study-wechat"/>
     <property name="LOG_HOME" value="/app/logs/${PROJECT_NAME}"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">

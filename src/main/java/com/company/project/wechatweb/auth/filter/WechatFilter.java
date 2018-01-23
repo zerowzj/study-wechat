@@ -1,7 +1,7 @@
 package com.company.project.wechatweb.auth.filter;
 
 import com.company.project.wechatweb.support.util.HttpWrites;
-import com.company.project.wechatweb.support.util.WechatConfig;
+import com.company.project.wechatweb.support.util.WechatCfg;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -36,7 +36,7 @@ public class WechatFilter extends OncePerRequestFilter {
     private static final String TOKEN;
 
     static {
-        TOKEN = WechatConfig.getToken();
+        TOKEN = WechatCfg.getToken();
     }
 
     @Override
