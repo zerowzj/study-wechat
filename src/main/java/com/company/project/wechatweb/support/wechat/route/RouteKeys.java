@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.wechat;
+package com.company.project.wechatweb.support.wechat.route;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;

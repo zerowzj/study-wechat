@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.wechat;
+package com.company.project.wechatweb.support.wechat.route;
 
 import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.google.common.collect.Maps;

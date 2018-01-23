@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.wechat;
+package com.company.project.wechatweb.support.wechat.msg;
 
 import com.google.common.collect.Maps;
 import com.google.common.io.ByteSource;

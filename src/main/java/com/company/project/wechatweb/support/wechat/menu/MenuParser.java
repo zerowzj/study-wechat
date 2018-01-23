@@ -1,6 +1,7 @@
-package com.company.project.wechatweb.support.wechat;
+package com.company.project.wechatweb.support.wechat.menu;
 
 import com.company.project.wechatweb.support.util.Dom4jUtil;
+import com.company.project.wechatweb.support.util.JsonUtil;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.dom4j.Document;

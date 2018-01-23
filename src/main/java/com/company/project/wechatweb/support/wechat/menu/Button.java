@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.wechat;
+package com.company.project.wechatweb.support.wechat.menu;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
