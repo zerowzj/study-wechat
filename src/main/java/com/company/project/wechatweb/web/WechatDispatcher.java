@@ -4,9 +4,9 @@ import com.company.project.wechatweb.service.wechat.blogic.BLogic;
 import com.company.project.wechatweb.service.wechat.msg.Msg;
 import com.company.project.wechatweb.support.util.HttpServlets;
 import com.company.project.wechatweb.support.util.XmlUtil;
-import com.company.project.wechatweb.support.wechat.MsgParser;
-import com.company.project.wechatweb.support.wechat.RouteFactory;
-import com.company.project.wechatweb.support.wechat.RouteKeys;
+import com.company.project.wechatweb.support.wechat.msg.MsgParser;
+import com.company.project.wechatweb.support.wechat.route.RouteFactory;
+import com.company.project.wechatweb.support.wechat.route.RouteKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.support.AopUtils;
@@ -29,9 +29,9 @@ import java.util.Map;
  * @author wangzhj
  */
 @Controller
-public class WechatApi implements ApplicationContextAware {
+public class WechatDispatcher implements ApplicationContextAware {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatApi.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WechatDispatcher.class);
 
     private static ApplicationContext cxt;
 
