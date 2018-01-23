@@ -2,6 +2,7 @@ package com.company.project.wechatweb.web;
 
 import com.company.project.wechatweb.service.wechat.blogic.BLogic;
 import com.company.project.wechatweb.service.wechat.msg.Msg;
+import com.company.project.wechatweb.support.util.HttpServlets;
 import com.company.project.wechatweb.support.util.XmlUtil;
 import com.company.project.wechatweb.support.wechat.MsgParser;
 import com.company.project.wechatweb.support.wechat.RouteFactory;
@@ -23,7 +24,7 @@ import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
- * 分发Api
+ * Wechat Api
  *
  * @author wangzhj
  */
