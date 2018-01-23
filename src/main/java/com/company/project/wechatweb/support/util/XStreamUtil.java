@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.XStream;
  *
  * @author wangzhj
  */
-public abstract class XmlUtil {
+public abstract class XStreamUtil {
 
     /**
      * xml转object
