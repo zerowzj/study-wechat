@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 微信菜单解析器
+ * 菜单解析器
  *
  * @author wangzhj
  */
@@ -21,11 +21,12 @@ public class MenuParser {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MenuParser.class);
 
-    private static final String FILE = "wechat/menu.xml";
-
+    //
     private static final String XPATH_BUTTON = "/xmlns:menu/xmlns:button";
-
+    //命名空间
     private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/menu";
+
+    private static final String FILE = "wechat/menu.xml";
 
     private static List<Button> BTN_LT = Lists.newArrayList();
 
@@ -33,15 +34,10 @@ public class MenuParser {
         Document doc = Dom4jUtil.getDoc(FILE, XPATH_NAME_SPACE_URL);
         //menu --> button
         List<Element> eleLt = doc.selectNodes(XPATH_BUTTON);
-        parse_button(eleLt);
+        parseButton(eleLt);
     }
 
-    /**
-     * 解析menu下的button
-     *
-     * @param btnEleLt
-     */
-    private static void parse_button(List<Element> btnEleLt) {
+    private static void parseButton(List<Element> btnEleLt) {
         for (Element btnEle : btnEleLt) {
             Button btn = new Button();
             btn.setName(Dom4jUtil.attrValue(btnEle, "name"));
@@ -60,15 +56,15 @@ public class MenuParser {
         }
     }
 
-    public static Button parse(Element btnEle) {
+    private static Button parse(Element btnEle) {
         Button btn = new Button();
         btn.setName(Dom4jUtil.attrValue(btnEle, "name"));
         String type = Dom4jUtil.attrValue(btnEle, "type");
         btn.setType(type);
-        if("view".equals(type)){
+        if ("view".equals(type)) {
             Element urlEle = btnEle.element("url");
             btn.setUrl(urlEle.getTextTrim());
-        } else if("click".equals(type)){
+        } else if ("click".equals(type)) {
             Element keyEle = btnEle.element("key");
             btn.setKey(keyEle.getTextTrim());
         }
