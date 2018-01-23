@@ -20,4 +20,21 @@ public class JsonUtil {
         }
         return str;
     }
+
+    /**
+     * Json转对象
+     *
+     * @param str
+     * @return T
+     */
+    public static <T> T fromJson(String str, Class<T> clazz) {
+        ObjectMapper mapper = new ObjectMapper();
+        T t = null;
+        try {
+            t = mapper.readValue(str, clazz);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return t;
+    }
 }

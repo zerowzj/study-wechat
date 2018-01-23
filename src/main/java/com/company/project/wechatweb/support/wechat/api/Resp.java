@@ -3,7 +3,7 @@ package com.company.project.wechatweb.support.wechat.api;
 import java.io.Serializable;
 
 /**
- * 响应结果
+ * 响应
  *
  * @author wangzhj
  */

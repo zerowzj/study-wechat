@@ -1,15 +1,15 @@
 package com.company.project.wechatweb.support.wechat.api.userinfo;
 
-import com.company.project.wechatweb.wechat.Resp;
+import com.company.project.wechatweb.support.wechat.api.Resp;
 
 import java.util.List;
 
 /**
- * Created by wangzhj on 2017/6/6.
+ * 用户信息响应
  *
  * @author wangzhj
  */
-public class UserInfo extends Resp {
+public class UserInfoResp extends Resp {
 
     //用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
     private Integer subscribe;
