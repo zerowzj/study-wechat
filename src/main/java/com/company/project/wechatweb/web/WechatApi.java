@@ -58,7 +58,7 @@ public class WechatApi implements ApplicationContextAware {
     }
 
     /**
-     * 获取处理消息BLogic
+     * 获取消息BLogic
      */
     private <T> T getBean(String name) {
         if (!cxt.containsBean(name)) {
@@ -68,7 +68,7 @@ public class WechatApi implements ApplicationContextAware {
     }
 
     /**
-     * 获取消息对应Class
+     * 获取消息Class
      */
     private Class getMsgClazz(Class clazz) {
         if (clazz != null) {
