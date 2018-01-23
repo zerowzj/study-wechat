@@ -29,14 +29,13 @@ import java.util.Map;
  * @author wangzhj
  */
 @Controller
-@RequestMapping("/wechat/msg")
 public class WechatApi implements ApplicationContextAware {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WechatApi.class);
 
     private static ApplicationContext cxt;
 
-    @RequestMapping
+    @RequestMapping("/wechat/msg")
     public ResponseEntity<Void> dispatch(HttpServletRequest request) {
         try {
             //请求体
@@ -47,7 +46,7 @@ public class WechatApi implements ApplicationContextAware {
             //key ==> name ==> bean ==> target
             String key = RouteKeys.keyOfBean(xmlMap);
             String name = RouteFactory.getBeanName(key);
-            BLogic bLogic = getBean(name);
+            BLogic bLogic = getBLogic(name);
             Class clazz = AopUtils.getTargetClass(bLogic);
             //执行业务
             Msg msg = XmlUtil.fromXML(xmlBody, getMsgClazz(clazz));
@@ -61,7 +60,7 @@ public class WechatApi implements ApplicationContextAware {
     /**
      * 获取消息BLogic
      */
-    private <T> T getBean(String name) {
+    private <T> T getBLogic(String name) {
         if (!cxt.containsBean(name)) {
             throw new IllegalStateException("未包含[" + name + "]的Bean！");
         }
