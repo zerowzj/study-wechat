@@ -24,7 +24,7 @@ public abstract class BaseBLogic<T extends Msg> implements BLogic<T> {
             //发送消息
             String content = createMsg(openId, msg);
             if (!Strings.isNullOrEmpty(content)) {
-                CustomMsgs.sendMsg(msg.getFromUserName(), content);
+//                CustomMsgs.sendMsg(msg.getFromUserName(), content);
             }
             //处理业务
             processBusiness(openId, msg);

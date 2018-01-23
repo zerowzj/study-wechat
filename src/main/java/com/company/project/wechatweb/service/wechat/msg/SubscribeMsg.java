@@ -5,7 +5,7 @@ package com.company.project.wechatweb.service.wechat.msg;
  *
  * @author wangzhj
  */
-@XStreamAlias("xml")
+//@XStreamAlias("xml")
 public class SubscribeMsg extends Msg {
 
     //事件类型，subscribe(订阅)、unsubscribe(取消订阅)
