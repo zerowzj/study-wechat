@@ -29,9 +29,9 @@ import java.util.Map;
  * @author wangzhj
  */
 @Controller
-public class WechatDispatcher implements ApplicationContextAware {
+public class WechatApi implements ApplicationContextAware {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatDispatcher.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WechatApi.class);
 
     private static ApplicationContext cxt;
 
