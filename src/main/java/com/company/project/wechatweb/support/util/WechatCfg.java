@@ -4,11 +4,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * 微信参数配置
+ * 微信配置
  *
  * @author wangzhj
  */
-public final class WechatConfig {
+public final class WechatCfg {
 
     private static final String FILE = "/wechat.properties";
 
@@ -16,7 +16,7 @@ public final class WechatConfig {
 
     static {
         try {
-            InputStream in = WechatConfig.class.getResourceAsStream(FILE);
+            InputStream in = WechatCfg.class.getResourceAsStream(FILE);
             PROP = new Properties();
             PROP.load(in);
         } catch (Exception ex) {
@@ -38,5 +38,7 @@ public final class WechatConfig {
 
     public static void main(String[] args) {
         System.out.println(getAppId());
+        System.out.println(getSecret());
+        System.out.println(getToken());
     }
 }
