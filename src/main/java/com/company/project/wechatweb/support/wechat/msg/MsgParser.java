@@ -43,9 +43,7 @@ public class MsgParser {
             for (Element ele : eleLt) {
                 String key = ele.getName();
                 String value = ele.getText();
-
 //                LOGGER.info("{} = {}", key, value);
-
                 data.put(key, value);
             }
         } catch (Exception ex) {
