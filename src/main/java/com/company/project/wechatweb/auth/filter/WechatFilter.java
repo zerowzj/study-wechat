@@ -33,11 +33,7 @@ public class WechatFilter extends OncePerRequestFilter {
 
     private static final String PARAM_ECHO_STR = "echostr";
 
-    private static final String TOKEN;
-
-    static {
-        TOKEN = WechatCfg.getToken();
-    }
+    private static final String TOKEN = WechatCfg.getToken();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -45,12 +41,11 @@ public class WechatFilter extends OncePerRequestFilter {
         //有效性验证
         String method = request.getMethod();
         if (Objects.equal("GET", method.toUpperCase()) && isValidity(request)) {
-            if (isSignature(request)) {
-                HttpWrites.write(response, getEchostr(request));
-            } else {
-                LOGGER.info("签名验证未通过");
+            if (!isSignature(request)) {
+                LOGGER.info("签名验证未通过！");
+                return;
             }
-            return;
+            HttpWrites.write(response, getEchostr(request));
         }
         //继续执行
         filterChain.doFilter(request, response);
