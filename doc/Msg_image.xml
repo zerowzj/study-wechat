@@ -1,9 +1,10 @@
 <xml>
-    <ToUserName><![CDATA[toUser]]></ToUserName>
-    <FromUserName><![CDATA[fromUser]]></FromUserName>
-    <CreateTime>1348831860</CreateTime>
+    <ToUserName><![CDATA[gh_5da93890393f]]></ToUserName>
+    <FromUserName><![CDATA[oeAbiwxhpKI3NHeE3rJOywaLsN1g]]></FromUserName>
+    <CreateTime>1516781541</CreateTime>
     <MsgType><![CDATA[image]]></MsgType>
-    <PicUrl><![CDATA[this is a url]]></PicUrl>
-    <MediaId><![CDATA[media_id]]></MediaId>
-    <MsgId>1234567890123456</MsgId>
+    <PicUrl>
+        <![CDATA[http://mmbiz.qpic.cn/mmbiz_jpg/jvTcuB2ibLWTIOkrFsb0pDo7yuRWQ7NPk1Xuj3XLjHlAoKJeyVtltFgxCk53g3yl4whaCuCZEZn6OoWOWYRJeHQ/0]]></PicUrl>
+    <MsgId>6514527114192791665</MsgId>
+    <MediaId><![CDATA[TEfiN3LETOQ3opZ1ixxyrGnY39787-7fSHyPfhQATJZZPazbmU7YUAIfyGe0yPBy]]></MediaId>
 </xml>
