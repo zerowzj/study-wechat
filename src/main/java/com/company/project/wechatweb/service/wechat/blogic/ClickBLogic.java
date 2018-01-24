@@ -13,6 +13,6 @@ public class ClickBLogic extends BaseBLogic<MenuMsg> {
 
     @Override
     public void processBusiness(String openId, MenuMsg msg) {
-        LOGGER.info("用户[{}]跳转了[{}]", msg.getFromUserName(), msg.getEventKey());
+        LOGGER.info("用户[{}]点击[{}]", msg.getFromUserName(), msg.getEventKey());
     }
 }

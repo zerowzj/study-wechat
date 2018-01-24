@@ -18,13 +18,13 @@ public class MenuApi {
     private static final String URL = "https://api.weixin.qq.com/cgi-bin/menu/create";
 
     /**
-     * 初始化菜单
+     * 创建菜单
      *
      * @param json
      */
-    public static void initMenu(String json) {
-        LOGGER.info("初始化菜单===>{}", json);
-        //生成url
+    public static void createMenu(String json) {
+        LOGGER.info("创建菜单===>{}", json);
+        //生成URL
         StringBuffer url = new StringBuffer(URL);
         url.append("?access_token=");
         url.append(TokenApi.getAccessToken());
@@ -32,11 +32,11 @@ public class MenuApi {
         HttpRequest request = HttpRequest.post(url.toString()).send(json);
         if (request.ok()) {
             String body = request.body();
-            LOGGER.info("初始化菜单<==={}", body);
+            LOGGER.info("创建菜单<==={}", body);
         }
     }
 
     public static void main(String[] args) {
-        initMenu(MenuParser.getMenu());
+        createMenu(MenuParser.getMenu());
     }
 }

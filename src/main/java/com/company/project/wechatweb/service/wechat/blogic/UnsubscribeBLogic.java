@@ -4,7 +4,7 @@ import com.company.project.wechatweb.service.wechat.msg.SubscribeMsg;
 import org.springframework.stereotype.Component;
 
 /**
- * 取消关注事件
+ * 取消关注
  *
  * @author wangzhj
  */

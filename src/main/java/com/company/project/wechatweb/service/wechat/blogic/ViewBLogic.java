@@ -4,7 +4,7 @@ import com.company.project.wechatweb.service.wechat.msg.MenuMsg;
 import org.springframework.stereotype.Component;
 
 /**
- * 跳转Url
+ * URL跳转
  *
  * @author wangzhj
  */
@@ -13,6 +13,6 @@ public class ViewBLogic extends BaseBLogic<MenuMsg> {
 
     @Override
     public void processBusiness(String openId, MenuMsg msg) {
-        LOGGER.info("用户[{}]跳转了[{}]", msg.getFromUserName(), msg.getEventKey());
+        LOGGER.info("用户[{}]跳转[{}]", msg.getFromUserName(), msg.getEventKey());
     }
 }

@@ -26,7 +26,7 @@ public class TokenApi {
     private static long overTimeMillis = -1;
 
     /**
-     * 获取Access TokenResp
+     * 获取Access Token
      *
      * @return String
      */
@@ -53,12 +53,16 @@ public class TokenApi {
         TokenResp token = null;
         if (request.ok()) {
             String body = request.body();
-            LOGGER.info("获取access_token<==={}", body);
+            LOGGER.info("获取access_token<=={}", body);
             token = JsonUtil.fromJson(body, TokenResp.class);
         }
         if (token != null && token.ok()) {
             overTimeMillis = System.currentTimeMillis() + token.getExpires_in() * 1000;
             accessToken = token.getAccess_token();
         }
+    }
+
+    public static void main(String[] args) {
+        getAccessToken();
     }
 }

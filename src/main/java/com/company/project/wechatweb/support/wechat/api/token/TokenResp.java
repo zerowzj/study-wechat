@@ -9,7 +9,7 @@ import com.company.project.wechatweb.support.wechat.api.Resp;
  */
 public class TokenResp extends Resp {
 
-    //token
+    //Access Token
     private String access_token;
     //有效时间(秒)
     private int expires_in;
