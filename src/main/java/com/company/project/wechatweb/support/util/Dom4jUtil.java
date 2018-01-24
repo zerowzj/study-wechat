@@ -5,9 +5,13 @@ import com.google.common.io.Closeables;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
 
 import java.io.InputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.Map;
 
 /**
@@ -17,7 +21,7 @@ import java.util.Map;
  */
 public abstract class Dom4jUtil {
 
-    public static Document getDoc(String file){
+    public static Document getDoc(String file) {
         return getDoc(file, null);
     }
 
@@ -63,6 +67,33 @@ public abstract class Dom4jUtil {
             value = attr.getValue();
         }
         return value;
+    }
+
+    /**
+     * 格式化
+     *
+     * @param xml
+     * @return String
+     */
+    public static String format(String xml) {
+        Document doc;
+        XMLWriter writer;
+        StringWriter out = null;
+        try {
+            SAXReader reader = new SAXReader();
+            StringReader in = new StringReader(xml);
+            doc = reader.read(in);
+            OutputFormat formatter = OutputFormat.createPrettyPrint();
+            formatter.setEncoding("UTF-8");
+            out = new StringWriter();
+            writer = new XMLWriter(out, formatter);
+            writer.write(doc);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return out.toString();
     }
 
     public static String fixedXpath(String xpath) {

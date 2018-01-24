@@ -1,5 +1,7 @@
 package com.company.project.wechatweb.support.util;
 
+import com.google.common.io.Closeables;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
@@ -37,7 +39,10 @@ public class HttpWrites {
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
-            Closeables.closeQuietly(out);
+            try {
+                Closeables.close(out, false);
+            } catch (Exception ex) {
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.company.project.wechatweb.support.util;
 
+import com.google.common.io.Closeables;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;

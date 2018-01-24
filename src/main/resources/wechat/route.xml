@@ -18,4 +18,5 @@
     <!-- ==================== -->
     <!-- 文本 -->
     <route msgType="text" bean="textBLogic"/>
+    <route msgType="image" bean="imageBLogic"/>
 </routes>

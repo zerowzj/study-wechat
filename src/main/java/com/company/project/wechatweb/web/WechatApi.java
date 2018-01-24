@@ -2,6 +2,7 @@ package com.company.project.wechatweb.web;
 
 import com.company.project.wechatweb.service.wechat.blogic.BLogic;
 import com.company.project.wechatweb.service.wechat.msg.Msg;
+import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.company.project.wechatweb.support.util.HttpServlets;
 import com.company.project.wechatweb.support.util.XStreamUtil;
 import com.company.project.wechatweb.support.wechat.msg.MsgParser;
@@ -40,7 +41,7 @@ public class WechatApi implements ApplicationContextAware {
         try {
             //请求体
             String xmlBody = HttpServlets.getBodyString(request);
-            LOGGER.info("{}", xmlBody);
+            LOGGER.info("{}", Dom4jUtil.format(xmlBody));
             //xml ==> map
             Map<String, String> xmlMap = MsgParser.parse(xmlBody);
             //key ==> name ==> bean ==> target
