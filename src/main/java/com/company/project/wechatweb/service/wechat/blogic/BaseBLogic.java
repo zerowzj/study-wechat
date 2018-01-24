@@ -38,7 +38,9 @@ public abstract class BaseBLogic<T extends Msg> implements BLogic<T> {
      *
      * @param msg
      */
-    public abstract String createMsg(String openId, T msg);
+    public String createMsg(String openId, T msg) {
+        return null;
+    }
 
     /**
      * 处理业务

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author wangzhj
  */
 @Component
-public class TextMsgBLogic extends BaseBLogic<TextMsg> {
+public class TextBLogic extends BaseBLogic<TextMsg> {
 
     @Override
     public String createMsg(String openId, TextMsg msg) {
