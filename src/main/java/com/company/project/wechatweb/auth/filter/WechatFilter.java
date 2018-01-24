@@ -51,18 +51,12 @@ public class WechatFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    /**
-     * 是否是验证
-     */
     private boolean isValidity(HttpServletRequest request) {
         Map<String, Object> params = request.getParameterMap();
         return params.containsKey(PARAM_SIGNATURE) && params.containsKey(PARAM_TIME_STAMP) &&
                 params.containsKey(PARAM_NONCE) && params.containsKey(PARAM_ECHO_STR);
     }
 
-    /**
-     * 验证签名
-     */
     private boolean isSignature(HttpServletRequest request) {
         String src = Joiner.on("").join(TOKEN, getTimestamp(request), getNonce(request));
         String mySign = DigestUtils.sha1Hex(src);
