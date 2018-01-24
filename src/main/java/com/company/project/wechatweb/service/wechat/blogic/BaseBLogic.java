@@ -1,6 +1,7 @@
 package com.company.project.wechatweb.service.wechat.blogic;
 
 import com.company.project.wechatweb.service.wechat.msg.Msg;
+import com.company.project.wechatweb.support.wechat.api.msg.CustomMsgApi;
 import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public abstract class BaseBLogic<T extends Msg> implements BLogic<T> {
             //发送消息
             String content = createMsg(openId, msg);
             if (!Strings.isNullOrEmpty(content)) {
-//                CustomMsgs.sendMsg(msg.getFromUserName(), content);
+                CustomMsgApi.send(msg.getFromUserName(), content);
             }
         } catch (Exception ex) {
             ex.printStackTrace();

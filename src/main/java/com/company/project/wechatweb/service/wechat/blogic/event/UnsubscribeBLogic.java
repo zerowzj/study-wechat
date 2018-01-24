@@ -1,5 +1,6 @@
-package com.company.project.wechatweb.service.wechat.blogic;
+package com.company.project.wechatweb.service.wechat.blogic.event;
 
+import com.company.project.wechatweb.service.wechat.blogic.BaseBLogic;
 import com.company.project.wechatweb.service.wechat.msg.SubscribeMsg;
 import org.springframework.stereotype.Component;
 

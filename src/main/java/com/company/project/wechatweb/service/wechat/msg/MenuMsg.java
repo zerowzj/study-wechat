@@ -14,6 +14,8 @@ public class MenuMsg extends Msg {
     private String Event;
     //事件KEY值，CLICK时与自定义菜单接口中KEY值对应，VIEW时设置的跳转URL
     private String EventKey;
+    //KEY为CLICK时不存在
+    private String MenuId;
 
     public String getEventKey() {
         return EventKey;
@@ -29,5 +31,13 @@ public class MenuMsg extends Msg {
 
     public void setEvent(String event) {
         Event = event;
+    }
+
+    public String getMenuId() {
+        return MenuId;
+    }
+
+    public void setMenuId(String menuId) {
+        MenuId = menuId;
     }
 }

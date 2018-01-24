@@ -7,10 +7,11 @@ package com.company.project.wechatweb.service.wechat.msg;
  */
 public class TextMsg extends Msg {
 
-    //文本消息内容
-    private String Content;
     //消息id，64位整型
     private String MsgId;
+
+    //文本消息内容
+    private String Content;
 
     public String getContent() {
         return Content;
