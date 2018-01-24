@@ -2,28 +2,21 @@
 <menu xmlns="http://www.company.cn/menu"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.company.cn/menu /META-INF/menu.xsd">
-    <button name="菜单1">
+    <button name="就诊指南">
         <sub_btn name="按钮1" type="view">
             <url><![CDATA[http://www.sohu.com]]></url>
-        </sub_btn>
-        <sub_btn name="按钮2" type="click">
-            <key><![CDATA[click_1]]></key>
         </sub_btn>
     </button>
-    <button name="菜单2">
-        <sub_btn name="按钮1" type="view">
-            <url><![CDATA[http://www.sohu.com]]></url>
-        </sub_btn>
-        <sub_btn name="按钮2" type="click">
-            <key><![CDATA[click_1]]></key>
+    <button name="就诊服务">
+        <sub_btn name="挂号" type="view">
+            <url>
+                <![CDATA[${wechat.auth.url}?appid=${wechat.app_id}&redirect_uri=${redirect.uri.getting_list}&response_type=${wechat.auth.response_type}&scope=${wechat.auth.scope}&state=${wechat.auth.state}#wechat_redirect]]>
+            </url>
         </sub_btn>
     </button>
-    <button name="菜单3">
+    <button name="个人中心">
         <sub_btn name="按钮1" type="view">
             <url><![CDATA[http://www.sohu.com]]></url>
-        </sub_btn>
-        <sub_btn name="按钮2" type="click">
-            <key><![CDATA[click_1]]></key>
         </sub_btn>
     </button>
 </menu>
