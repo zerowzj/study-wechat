@@ -15,11 +15,12 @@ import java.util.Map;
  */
 public class RouteFactory {
 
-    private static final String FILE = "wechat/route.xml";
-
+    //命名空间
     private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/routes";
-
+    //XPath
     private static final String XPATH_ROUTE = "/xmlns:routes/xmlns:route";
+
+    private static final String FILE = "wechat/route.xml";
 
     private static final Map<String, String> BEAN_MAP = Maps.newHashMap();
 
