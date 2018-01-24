@@ -13,6 +13,6 @@ public class UnsubscribeBLogic extends BaseBLogic<SubscribeMsg> {
 
     @Override
     public void processBusiness(String openId, SubscribeMsg msg) {
-
+        LOGGER.info("[{}]取消了关注公众号", openId);
     }
 }

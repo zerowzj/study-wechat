@@ -21,13 +21,13 @@ public abstract class BaseBLogic<T extends Msg> implements BLogic<T> {
         try {
             //获取OpenId
             String openId = msg.getFromUserName();
+            //处理业务
+            processBusiness(openId, msg);
             //发送消息
             String content = createMsg(openId, msg);
             if (!Strings.isNullOrEmpty(content)) {
 //                CustomMsgs.sendMsg(msg.getFromUserName(), content);
             }
-            //处理业务
-            processBusiness(openId, msg);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

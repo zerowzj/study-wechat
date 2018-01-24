@@ -12,13 +12,12 @@ import org.springframework.stereotype.Component;
 public class SubscribeBLogic extends BaseBLogic<SubscribeMsg> {
 
     @Override
-    public String createMsg(String openId, SubscribeMsg msg) {
+    public void processBusiness(String openId, SubscribeMsg msg) {
         LOGGER.info("[{}]关注公众号", openId);
-        return "欢迎你关注了公众号";
     }
 
     @Override
-    public void processBusiness(String openId, SubscribeMsg msg) {
-
+    public String createMsg(String openId, SubscribeMsg msg) {
+        return "欢迎你关注了公众号";
     }
 }
