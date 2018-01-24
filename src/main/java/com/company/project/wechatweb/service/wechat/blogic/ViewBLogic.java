@@ -12,13 +12,7 @@ import org.springframework.stereotype.Component;
 public class ViewBLogic extends BaseBLogic<MenuMsg> {
 
     @Override
-    public String createMsg(String openId, MenuMsg msg) {
-        LOGGER.info("用户[{}]跳转了[{}]", msg.getFromUserName(), msg.getEventKey());
-        return null;
-    }
-
-    @Override
     public void processBusiness(String openId, MenuMsg msg) {
-
+        LOGGER.info("用户[{}]跳转了[{}]", msg.getFromUserName(), msg.getEventKey());
     }
 }

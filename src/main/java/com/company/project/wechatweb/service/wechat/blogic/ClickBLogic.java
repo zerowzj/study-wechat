@@ -12,11 +12,6 @@ import org.springframework.stereotype.Component;
 public class ClickBLogic extends BaseBLogic<MenuMsg> {
 
     @Override
-    public String createMsg(String openId, MenuMsg msg) {
-        return null;
-    }
-
-    @Override
     public void processBusiness(String openId, MenuMsg msg) {
     }
 }
