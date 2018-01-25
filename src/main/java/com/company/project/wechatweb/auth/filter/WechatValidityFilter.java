@@ -17,13 +17,13 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * 微信Filter
+ * 微信有效性验证Filter
  *
  * @author wangzhj
  */
-public class WechatFilter extends OncePerRequestFilter {
+public class WechatValidityFilter extends OncePerRequestFilter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WechatValidityFilter.class);
 
     private static final String PARAM_SIGNATURE = "signature";
 
@@ -45,6 +45,7 @@ public class WechatFilter extends OncePerRequestFilter {
                 LOGGER.info("签名验证未通过！");
                 return;
             }
+            LOGGER.info("签名验证通过！");
             HttpWrites.write(response, getEchostr(request));
         }
         //继续执行
