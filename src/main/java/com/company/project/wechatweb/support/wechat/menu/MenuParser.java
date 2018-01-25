@@ -45,7 +45,7 @@ public class MenuParser {
             if ("view".equals(type) || "click".equals(type)) {
                 btn = parse(btnEle);
             } else {
-                List<Element> subBtnEleLt = btnEle.elements("sub_btn");
+                List<Element> subBtnEleLt = btnEle.elements("sub_button");
                 List<Button> subBtnLt = Lists.newArrayList();
                 for (Element suBtnEle : subBtnEleLt) {
                     subBtnLt.add(parse(suBtnEle));
