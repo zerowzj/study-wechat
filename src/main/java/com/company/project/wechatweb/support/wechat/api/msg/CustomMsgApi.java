@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 /**
- * 自定义消息
+ * 客服消息Api
  *
  * @author wangzhj
  */
@@ -39,17 +39,17 @@ public class CustomMsgApi {
         context.put("content", content);
         data.put("text", context);
         //Url
-        StringBuffer sb = new StringBuffer(URL);
-        sb.append("?access_token=");
-        sb.append(TokenApi.getAccessToken());
+        StringBuffer myUrl = new StringBuffer(URL);
+        myUrl.append("?access_token=")
+                .append(TokenApi.getAccessToken());
         //请求
-        LOGGER.info("发送自定义消息===>{}", JsonUtil.toJson(data));
-        HttpRequest request = HttpRequest.post(sb.toString())
+        LOGGER.info("发送客服消息===>{}", JsonUtil.toJson(data));
+        HttpRequest request = HttpRequest.post(myUrl)
                 .contentType("application/json", "UTF-8")
                 .send(JsonUtil.toJson(data));
         LOGGER.info("code={}", request.code());
         if (request.ok()) {
-            LOGGER.info("发送自定义消息<==={}", request.body());
+            LOGGER.info("发送客服消息<==={}", request.body());
         }
     }
 }

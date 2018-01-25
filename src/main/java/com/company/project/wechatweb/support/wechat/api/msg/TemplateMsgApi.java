@@ -28,7 +28,7 @@ public class TemplateMsgApi {
      * @param templateId
      * @param data
      */
-    public static void send(String openId, String templateId, Map<String, Object> data) {
+    public static void send(String openId, String templateId, Map<String, Value> data) {
         //验证
         Preconditions.checkNotNull(openId);
         Preconditions.checkNotNull(templateId);

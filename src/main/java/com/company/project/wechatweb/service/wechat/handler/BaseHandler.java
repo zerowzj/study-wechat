@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 
 /**
- * 基本业务逻辑
+ * 基本处理器
  *
  * @author wangzhj
  */
