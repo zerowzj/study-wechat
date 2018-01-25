@@ -12,7 +12,5 @@
 </head>
 <body>
 123123123
-
-<a href="/demo/test2">点我</a>
 </body>
 </html>
