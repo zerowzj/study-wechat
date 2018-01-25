@@ -14,4 +14,9 @@ public class DemoController {
     public ModelAndView demo(HttpServletRequest request) {
         return new ModelAndView("test");
     }
+
+    @RequestMapping("/test2")
+    public ModelAndView demo2(HttpServletRequest request) {
+        return new ModelAndView("test2");
+    }
 }
