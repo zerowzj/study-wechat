@@ -27,10 +27,12 @@ public class WechatAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+        LOGGER.info("url==>{}", request.getRequestURI());
         LOGGER.info("QueryString==>{}", request.getQueryString());
         try {
             //获取OpenId
             String code = getCode(request);
+            LOGGER.info("code={}", code);
             AuthTokenResp token = AuthTokenApi.getAccessToken(code);
             String openId = token.getOpenid();
             OpenIds.set(openId);
