@@ -12,6 +12,7 @@
             <url>
                 <![CDATA[${wechat.auth.url}?appid=${wechat.app_id}&redirect_uri=${redirect.uri.getting_list}&response_type=${wechat.auth.response_type}&scope=${wechat.auth.scope}&state=${wechat.auth.state}#wechat_redirect]]>
             </url>
+            <!--<url>${redirect.uri.getting_list}</url>-->
         </sub_btn>
     </button>
     <button name="个人中心">

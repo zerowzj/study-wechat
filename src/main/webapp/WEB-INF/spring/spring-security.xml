@@ -9,11 +9,13 @@
     <!-- ==================== -->
     <bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
         <security:filter-chain-map request-matcher="ant">
-            <security:filter-chain pattern="/wechat/msg**" filters="wechatFilter"/>
+            <security:filter-chain pattern="/wechat/msg**" filters="wechatValidityFilter"/>
+            <security:filter-chain pattern="/**" filters="wechatAuthFilter"/>
         </security:filter-chain-map>
     </bean>
     <!-- ==================== -->
     <!--      自定义过滤器     -->
     <!-- ==================== -->
-    <bean id="wechatFilter" class="com.company.project.wechatweb.auth.filter.WechatFilter"/>
+    <bean id="wechatValidityFilter" class="com.company.project.wechatweb.auth.filter.WechatValidityFilter"/>
+    <bean id="wechatAuthFilter" class="com.company.project.wechatweb.auth.filter.WechatAuthFilter"/>
 </beans>
