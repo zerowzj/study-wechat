@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 微信授权
+ * 微信授权Filter
  *
  * @author wangzhj
  */
@@ -22,13 +22,15 @@ public class WechatAuthFilter extends OncePerRequestFilter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WechatAuthFilter.class);
 
+    private static final String PARAM_CODE = "code";
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        LOGGER.info("QueryString===>{}", request.getQueryString());
+        LOGGER.info("QueryString==>{}", request.getQueryString());
         try {
             //获取OpenId
-            String code = request.getParameter("code");
+            String code = getCode(request);
             AuthTokenResp token = AuthTokenApi.getAccessToken(code);
             String openId = token.getOpenid();
             OpenIds.set(openId);
@@ -38,4 +40,9 @@ public class WechatAuthFilter extends OncePerRequestFilter {
             OpenIds.remove();
         }
     }
+
+    private String getCode(HttpServletRequest request) {
+        return request.getParameter(PARAM_CODE);
+    }
+
 }
