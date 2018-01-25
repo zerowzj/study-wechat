@@ -5,7 +5,7 @@ import com.company.project.wechatweb.service.wechat.msg.MenuMsg;
 import org.springframework.stereotype.Component;
 
 /**
- * 自定义
+ * 拉取消息
  *
  * @author wangzhj
  */

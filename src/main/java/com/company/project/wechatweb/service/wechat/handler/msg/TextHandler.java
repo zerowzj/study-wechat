@@ -5,7 +5,7 @@ import com.company.project.wechatweb.service.wechat.msg.TextMsg;
 import org.springframework.stereotype.Component;
 
 /**
- * 文本消息
+ * 文本
  *
  * @author wangzhj
  */

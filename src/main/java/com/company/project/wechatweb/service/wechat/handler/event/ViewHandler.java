@@ -5,7 +5,7 @@ import com.company.project.wechatweb.service.wechat.msg.MenuMsg;
 import org.springframework.stereotype.Component;
 
 /**
- * URL跳转
+ * 跳转链接
  *
  * @author wangzhj
  */
