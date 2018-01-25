@@ -1,6 +1,6 @@
 package com.company.project.wechatweb.web;
 
-import com.company.project.wechatweb.service.wechat.blogic.BLogic;
+import com.company.project.wechatweb.service.wechat.handler.Handler;
 import com.company.project.wechatweb.service.wechat.msg.Msg;
 import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.company.project.wechatweb.support.util.HttpServlets;
@@ -47,11 +47,11 @@ public class WechatApi implements ApplicationContextAware {
             //key ==> name ==> bean ==> target
             String key = RouteKeys.keyOfBean(xmlMap);
             String name = RouteFactory.getBeanName(key);
-            BLogic bLogic = getBLogic(name);
-            Class clazz = AopUtils.getTargetClass(bLogic);
-            //执行业务
+            Handler handler = getHandler(name);
+            Class clazz = AopUtils.getTargetClass(handler);
+            //执行
             Msg msg = XStreamUtil.fromXML(xmlBody, getMsgClazz(clazz));
-            bLogic.doBusiness(msg);
+            handler.doHandle(msg);
         } catch (Exception ex) {
             throw ex;
         }
@@ -59,9 +59,9 @@ public class WechatApi implements ApplicationContextAware {
     }
 
     /**
-     * 获取消息BLogic
+     * 获取消息Handler
      */
-    private <T> T getBLogic(String name) {
+    private <T> T getHandler(String name) {
         if (!cxt.containsBean(name)) {
             throw new IllegalStateException("未包含[" + name + "]的Bean！");
         }

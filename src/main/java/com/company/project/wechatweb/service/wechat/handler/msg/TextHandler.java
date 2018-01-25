@@ -1,6 +1,6 @@
-package com.company.project.wechatweb.service.wechat.blogic.msg;
+package com.company.project.wechatweb.service.wechat.handler.msg;
 
-import com.company.project.wechatweb.service.wechat.blogic.BaseBLogic;
+import com.company.project.wechatweb.service.wechat.handler.BaseHandler;
 import com.company.project.wechatweb.service.wechat.msg.TextMsg;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author wangzhj
  */
 @Component
-public class TextBLogic extends BaseBLogic<TextMsg> {
+public class TextHandler extends BaseHandler<TextMsg> {
 
     @Override
     public String createMsg(String openId, TextMsg msg) {
@@ -19,7 +19,7 @@ public class TextBLogic extends BaseBLogic<TextMsg> {
     }
 
     @Override
-    public void processBusiness(String openId, TextMsg msg) {
+    public void handle(String openId, TextMsg msg) {
 
     }
 }

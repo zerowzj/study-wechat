@@ -6,17 +6,18 @@
     <!--          事件        -->
     <!-- ==================== -->
     <!-- 关注/取消关注 -->
-    <route msgType="event" event="subscribe" bean="subscribeBLogic"/>
-    <route msgType="event" event="unsubscribe" bean="unsubscribeBLogic"/>
-    <!-- 拉取消息 -->
-    <!--<route msgType="event" event="CLICK" eventKey="click_1" bean="clickBLogic"/>-->
+    <route msgType="event" event="subscribe" bean="subscribeHandler"/>
+    <route msgType="event" event="unsubscribe" bean="unsubscribeHandler"/>
     <!-- 跳转链接 -->
-    <!--<route msgType="event" event="VIEW" bean="viewBLogic"/>-->
+    <!--<route msgType="event" event="VIEW" bean="viewHandler"/>-->
+    <!-- 拉取消息 -->
+    <!--<route msgType="event" event="CLICK" eventKey="click_1" bean="clickHandler"/>-->
+
     <!-- ==================== -->
     <!--         消息         -->
     <!-- ==================== -->
     <!-- 文本 -->
-    <!--<route msgType="text" bean="textBLogic"/>-->
+    <!--<route msgType="text" bean="textHandler"/>-->
     <!-- 图片 -->
-    <!--<route msgType="image" bean="imageBLogic"/>-->
+    <!--<route msgType="image" bean="imageHandler"/>-->
 </routes>

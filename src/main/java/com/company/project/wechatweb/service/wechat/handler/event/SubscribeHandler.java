@@ -1,6 +1,6 @@
-package com.company.project.wechatweb.service.wechat.blogic.event;
+package com.company.project.wechatweb.service.wechat.handler.event;
 
-import com.company.project.wechatweb.service.wechat.blogic.BaseBLogic;
+import com.company.project.wechatweb.service.wechat.handler.BaseHandler;
 import com.company.project.wechatweb.service.wechat.msg.SubscribeMsg;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
  * @author wangzhj
  */
 @Component
-public class SubscribeBLogic extends BaseBLogic<SubscribeMsg> {
+public class SubscribeHandler extends BaseHandler<SubscribeMsg> {
 
     @Override
-    public void processBusiness(String openId, SubscribeMsg msg) {
+    public void handle(String openId, SubscribeMsg msg) {
         LOGGER.info("[{}]关注公众号", openId);
     }
 

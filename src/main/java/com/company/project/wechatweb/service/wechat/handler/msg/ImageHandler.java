@@ -1,6 +1,6 @@
-package com.company.project.wechatweb.service.wechat.blogic.msg;
+package com.company.project.wechatweb.service.wechat.handler.msg;
 
-import com.company.project.wechatweb.service.wechat.blogic.BaseBLogic;
+import com.company.project.wechatweb.service.wechat.handler.BaseHandler;
 import com.company.project.wechatweb.service.wechat.msg.ImageMsg;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author wangzhj
  */
 @Component
-public class ImageBLogic extends BaseBLogic<ImageMsg> {
+public class ImageHandler extends BaseHandler<ImageMsg> {
 
     @Override
     public String createMsg(String openId, ImageMsg msg) {
@@ -18,7 +18,7 @@ public class ImageBLogic extends BaseBLogic<ImageMsg> {
     }
 
     @Override
-    public void processBusiness(String openId, ImageMsg msg) {
+    public void handle(String openId, ImageMsg msg) {
         LOGGER.info("sdfsdfsdf");
     }
 }

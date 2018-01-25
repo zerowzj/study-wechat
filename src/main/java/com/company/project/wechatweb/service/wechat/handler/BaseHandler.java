@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.service.wechat.blogic;
+package com.company.project.wechatweb.service.wechat.handler;
 
 import com.company.project.wechatweb.service.wechat.msg.Msg;
 import com.company.project.wechatweb.support.wechat.api.msg.CustomMsgApi;
@@ -13,17 +13,17 @@ import java.lang.invoke.MethodHandles;
  *
  * @author wangzhj
  */
-public abstract class BaseBLogic<T extends Msg> implements BLogic<T> {
+public abstract class BaseHandler<T extends Msg> implements Handler<T> {
 
     protected static Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @Override
-    public final void doBusiness(T msg) {
+    public final void doHandle(T msg) {
         try {
             //获取OpenId
             String openId = msg.getFromUserName();
-            //处理业务
-            processBusiness(openId, msg);
+            //进行处理
+            handle(openId, msg);
             //发送消息
             String content = createMsg(openId, msg);
             if (!Strings.isNullOrEmpty(content)) {
@@ -48,5 +48,5 @@ public abstract class BaseBLogic<T extends Msg> implements BLogic<T> {
      *
      * @param msg
      */
-    public abstract void processBusiness(String openId, T msg);
+    public abstract void handle(String openId, T msg);
 }
