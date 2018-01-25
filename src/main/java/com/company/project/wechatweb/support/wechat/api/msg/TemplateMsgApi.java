@@ -8,7 +8,6 @@ import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,9 +26,9 @@ public class TemplateMsgApi {
      *
      * @param openId
      * @param templateId
-     * @param templateId
+     * @param data
      */
-    public static void send(String openId, String templateId, List data) {
+    public static void send(String openId, String templateId, Map<String, Object> data) {
         //验证
         Preconditions.checkNotNull(openId);
         Preconditions.checkNotNull(templateId);
@@ -38,20 +37,20 @@ public class TemplateMsgApi {
         Map<String, Object> body = Maps.newHashMap();
         body.put("touser", openId);
         body.put("template_id", templateId);
-        Map<String, String> context = Maps.newHashMap();
-        body.put("data", context);
+        String json = JsonUtil.toJson(data);
+        body.put("data", json);
         //Url
-        StringBuffer sb = new StringBuffer(URL);
-        sb.append("?access_token=");
-        sb.append(TokenApi.getAccessToken());
+        StringBuffer myUrl = new StringBuffer(URL);
+        myUrl.append("?access_token=");
+        myUrl.append(TokenApi.getAccessToken());
         //请求
-        LOGGER.info(JsonUtil.toJson(data));
-        HttpRequest request = HttpRequest.post(sb.toString())
+        LOGGER.info("发送模板消息===>{}", json);
+        HttpRequest request = HttpRequest.post(myUrl)
                 .contentType("application/json", "UTF-8")
-                .send(JsonUtil.toJson(data));
+                .send(JsonUtil.toJson(body));
         LOGGER.info("code={}", request.code());
         if (request.ok()) {
-            LOGGER.info(request.body());
+            LOGGER.info("发送模板消息<==={}", request.body());
         }
     }
 }
