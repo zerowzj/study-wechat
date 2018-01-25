@@ -8,15 +8,15 @@
     <!-- 关注/取消关注 -->
     <route msgType="event" event="subscribe" bean="subscribeBLogic"/>
     <route msgType="event" event="unsubscribe" bean="unsubscribeBLogic"/>
-    <!-- 菜单 -->
-    <route msgType="event" event="VIEW" bean="viewBLogic"/>
-    <route msgType="event" event="CLICK" eventKey="click_1" bean="clickBLogic"/>
-
-
+    <!-- 拉取消息 -->
+    <!--<route msgType="event" event="CLICK" eventKey="click_1" bean="clickBLogic"/>-->
+    <!-- 跳转链接 -->
+    <!--<route msgType="event" event="VIEW" bean="viewBLogic"/>-->
     <!-- ==================== -->
     <!--         消息         -->
     <!-- ==================== -->
     <!-- 文本 -->
     <route msgType="text" bean="textBLogic"/>
+    <!-- 图片 -->
     <route msgType="image" bean="imageBLogic"/>
 </routes>
