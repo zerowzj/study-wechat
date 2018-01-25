@@ -17,23 +17,22 @@
                                         <xs:element name="url" type="xs:string" minOccurs="0"/>
                                     </xs:sequence>
                                     <xs:attribute name="name" type="xs:string" use="required"/>
-                                    <xs:attribute name="type" type="type_value" use="required"/>
+                                    <xs:attribute name="type" type="Type" use="required"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                         <xs:attribute name="name" type="xs:string" use="required"/>
-                        <xs:attribute name="type" type="type_value"/>
+                        <xs:attribute name="type" type="Type"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
     <!--  -->
-    <xs:simpleType name="type_value">
+    <xs:simpleType name="Type">
         <xs:restriction base="xs:string">
             <xs:enumeration value="click"/>
             <xs:enumeration value="view"/>
-            <xs:enumeration value="scancode_push"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>
