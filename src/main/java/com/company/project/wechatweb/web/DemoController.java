@@ -14,6 +14,8 @@ public class DemoController {
 
     @RequestMapping("/test")
     public ModelAndView demo(HttpServletRequest request) {
+        System.out.println(request.getParameter("openid"));
+        System.out.println(request.getParameter("code"));
         System.out.println("ssss");
         return new ModelAndView("test");
     }
