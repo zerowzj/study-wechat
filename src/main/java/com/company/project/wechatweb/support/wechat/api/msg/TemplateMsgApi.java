@@ -48,7 +48,7 @@ public class TemplateMsgApi {
         HttpRequest request = HttpRequest.post(myUrl)
                 .contentType("application/json", "UTF-8")
                 .send(JsonUtil.toJson(body));
-        LOGGER.info("code={}", request.code());
+        LOGGER.info("StatusCode={}", request.code());
         if (request.ok()) {
             LOGGER.info("发送模板消息<==={}", request.body());
         }

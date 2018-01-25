@@ -50,6 +50,7 @@ public class TokenApi {
         //
         LOGGER.info("获取access_token==>{}", JsonUtil.toJson(params));
         HttpRequest request = HttpRequest.get(URL, params, false);
+        LOGGER.info("StatusCode={}", request.code());
         TokenResp token = null;
         if (request.ok()) {
             String body = request.body();

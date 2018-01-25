@@ -47,7 +47,7 @@ public class CustomMsgApi {
         HttpRequest request = HttpRequest.post(myUrl)
                 .contentType("application/json", "UTF-8")
                 .send(JsonUtil.toJson(data));
-        LOGGER.info("code={}", request.code());
+        LOGGER.info("StatusCode={}", request.code());
         if (request.ok()) {
             LOGGER.info("发送客服消息<==={}", request.body());
         }
