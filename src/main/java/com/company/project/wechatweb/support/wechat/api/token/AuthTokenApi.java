@@ -1,7 +1,7 @@
 package com.company.project.wechatweb.support.wechat.api.token;
 
 import com.company.project.wechatweb.support.util.JsonUtil;
-import com.company.project.wechatweb.support.util.WechatCfg;
+import com.company.project.wechatweb.support.wechat.config.WechatCfg;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
@@ -40,7 +40,7 @@ public class AuthTokenApi {
         long now = System.currentTimeMillis();
         if (overTimeMillis <= now) {
             LOGGER.info("请求获取[access token]");
-            doGetToken(code);
+            doGet(code);
         }
         if (token == null) {
             throw new IllegalStateException("未获取到[access token]");
@@ -48,7 +48,7 @@ public class AuthTokenApi {
         return token;
     }
 
-    private static void doGetToken(String code) {
+    private static void doGet(String code) {
         Map<String, String> params = Maps.newHashMap();
         params.put("grant_type", GRANT_TYPE);
         params.put("appid", APP_ID);

@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.util;
+package com.company.project.wechatweb.support.wechat.config;
 
 import java.io.InputStream;
 import java.util.Properties;

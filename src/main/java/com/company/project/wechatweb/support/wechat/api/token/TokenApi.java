@@ -1,7 +1,7 @@
 package com.company.project.wechatweb.support.wechat.api.token;
 
 import com.company.project.wechatweb.support.util.JsonUtil;
-import com.company.project.wechatweb.support.util.WechatCfg;
+import com.company.project.wechatweb.support.wechat.config.WechatCfg;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
