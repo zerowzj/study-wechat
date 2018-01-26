@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author wangzhj
  */
 @Controller
-public class WechatRedirectApi {
+public class WechatOAuthApi {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatRedirectApi.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WechatOAuthApi.class);
 
     private static ApplicationContext cxt;
 
