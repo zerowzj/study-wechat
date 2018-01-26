@@ -1,5 +1,7 @@
 package com.company.project.wechatweb.web;
 
+import com.company.project.wechatweb.support.wechat.config.WechatCfg;
+import com.company.project.wechatweb.support.wechat.config.WechatJsCfg;
 import com.google.common.collect.Maps;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,12 +13,12 @@ import java.util.Map;
 @RequestMapping("/wechatjs/")
 public class WechatJsApi {
 
-    @RequestMapping("/getJsSign")
-    public Map<String, String> getJsSign(HttpServletRequest request) {
+    @RequestMapping("/getConfig")
+    public Map<String, String> getConfig(HttpServletRequest request) {
         Map<String, String> data = Maps.newHashMap();
-        data.put("appId", "");
-        data.put("timestamp", "");
-        data.put("nonceStr", "");
+        data.put("appId", WechatCfg.getAppId());
+        data.put("timestamp", WechatJsCfg.createTimestamp());
+        data.put("nonceStr", WechatJsCfg.createNonceStr());
         data.put("signature", "");
         return data;
     }
