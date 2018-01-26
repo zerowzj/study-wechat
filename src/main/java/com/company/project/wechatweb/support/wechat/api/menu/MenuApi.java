@@ -1,10 +1,12 @@
 package com.company.project.wechatweb.support.wechat.api.menu;
 
 import com.company.project.wechatweb.support.wechat.api.token.TokenApi;
-import com.company.project.wechatweb.support.wechat.menu.MenuParser;
 import com.github.kevinsawicki.http.HttpRequest;
+import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 /**
  * 菜单Api
@@ -43,12 +45,12 @@ public class MenuApi {
      */
     public static void getMenu() {
         LOGGER.info("获取菜单===>{}");
-        //生成URL
-        StringBuffer url = new StringBuffer(GET_URL);
-        url.append("?access_token=");
-        url.append(TokenApi.getAccessToken());
-        //
-        HttpRequest request = HttpRequest.post(url.toString());
+        //参数
+        Map<String, String> params = Maps.newHashMap();
+        params.put("access_token", TokenApi.getAccessToken());
+        //请求
+        HttpRequest request = HttpRequest.post(GET_URL, params, false);
+        //响应
         if (request.ok()) {
             String body = request.body();
             LOGGER.info("获取菜单<==={}", body);
@@ -56,7 +58,7 @@ public class MenuApi {
     }
 
     public static void main(String[] args) {
-        createMenu(MenuParser.getMenu());
-//        getMenu();
+//        createMenu(MenuParser.getMenu());
+        getMenu();
     }
 }
