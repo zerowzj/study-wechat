@@ -48,13 +48,13 @@ public class TokenApi {
         params.put("appid", WechatCfg.getAppId());
         params.put("secret", WechatCfg.getSecret());
         //
-        LOGGER.info("获取access_token==>{}", JsonUtil.toJson(params));
+        LOGGER.info("获取access token==>{}", JsonUtil.toJson(params));
         HttpRequest request = HttpRequest.get(URL, params, false);
-        LOGGER.info("StatusCode={}", request.code());
+        LOGGER.info("status code={}", request.code());
         TokenResp token = null;
         if (request.ok()) {
             String body = request.body();
-            LOGGER.info("获取access_token<=={}", body);
+            LOGGER.info("获取access token<=={}", body);
             token = JsonUtil.fromJson(body, TokenResp.class);
         }
         if (token != null && token.ok()) {

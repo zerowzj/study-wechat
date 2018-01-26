@@ -22,7 +22,7 @@ public class MenuParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(MenuParser.class);
 
     //命名空间
-    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/menu";
+    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/menu-config";
     //XPath
     private static final String XPATH_BUTTON = "/xmlns:menu/xmlns:button";
 
