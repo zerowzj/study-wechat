@@ -21,11 +21,6 @@ public class SubscribeHandler extends BaseHandler<SubscribeMsg> {
     @Override
     public void handle(String openId, SubscribeMsg msg) {
         LOGGER.info("[{}]关注公众号", openId);
-
-        Map<String, Value> data = Maps.newHashMap();
-        data.put("mykey", new Value("ffff"));
-
-        TemplateMsgApi.send(openId, "_NRejXL6EnsJ92RbqZKS8hKb6xt7I9UFWzpxChX9o2U", data);
     }
 
 //    @Override

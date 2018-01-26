@@ -22,11 +22,11 @@ public class MenuParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(MenuParser.class);
 
     //命名空间
-    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/menu-config";
+    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/menu";
     //XPath
     private static final String XPATH_BUTTON = "/xmlns:menu/xmlns:button";
 
-    private static final String FILE = "wechat/menu.xml";
+    private static final String FILE = "wechat/menu-config.xml";
 
     private static List<Button> BTN_LT = Lists.newArrayList();
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menu xmlns="http://www.company.cn/menu-config"
+<menu xmlns="http://www.company.cn/menu"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.company.cn/menu-config /META-INF/menu-config.xsd">
+      xsi:schemaLocation="http://www.company.cn/menu /META-INF/menu.xsd">
     <button name="就诊指南">
         <sub_button name="按钮1" type="view">
             <url><![CDATA[http://www.sohu.com]]></url>

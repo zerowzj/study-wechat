@@ -6,8 +6,8 @@ import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.company.project.wechatweb.support.util.HttpServlets;
 import com.company.project.wechatweb.support.util.XStreamUtil;
 import com.company.project.wechatweb.support.wechat.msg.MsgParser;
-import com.company.project.wechatweb.support.wechat.route.RouteFactory;
-import com.company.project.wechatweb.support.wechat.route.RouteKeys;
+import com.company.project.wechatweb.support.wechat.handler.HandlerFactory;
+import com.company.project.wechatweb.support.wechat.handler.HandlerKeys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.support.AopUtils;
@@ -45,8 +45,8 @@ public class WechatApi implements ApplicationContextAware {
             //xml ==> map
             Map<String, String> xmlMap = MsgParser.parse(xmlBody);
             //key ==> name ==> bean ==> target
-            String key = RouteKeys.keyOfBean(xmlMap);
-            String name = RouteFactory.getBeanName(key);
+            String key = HandlerKeys.keyOfBean(xmlMap);
+            String name = HandlerFactory.getBeanName(key);
             Handler handler = getHandler(name);
             Class clazz = AopUtils.getTargetClass(handler);
             //执行

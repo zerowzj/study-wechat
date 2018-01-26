@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.wechat.route;
+package com.company.project.wechatweb.support.wechat.handler;
 
 import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.google.common.collect.Maps;
@@ -13,14 +13,14 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-public class RouteFactory {
+public class HandlerFactory {
 
     //命名空间
-    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/routes";
+    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/handler";
     //XPath
     private static final String XPATH_ROUTE = "/xmlns:routes/xmlns:route";
 
-    private static final String FILE = "wechat/route.xml";
+    private static final String FILE = "wechat/handler-config.xml";
 
     private static final Map<String, String> BEAN_MAP = Maps.newHashMap();
 
@@ -36,7 +36,7 @@ public class RouteFactory {
             String event = Dom4jUtil.attrValue(ele, "event");
             String eventKey = Dom4jUtil.attrValue(ele, "eventKey");
 
-            String key = RouteKeys.keyOfBean(msgType, event, eventKey);
+            String key = HandlerKeys.keyOfBean(msgType, event, eventKey);
             String bean = Dom4jUtil.attrValue(ele, "bean");
 
             BEAN_MAP.put(key, bean);

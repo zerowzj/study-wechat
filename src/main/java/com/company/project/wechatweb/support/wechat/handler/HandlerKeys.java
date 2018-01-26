@@ -1,4 +1,4 @@
-package com.company.project.wechatweb.support.wechat.route;
+package com.company.project.wechatweb.support.wechat.handler;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-public class RouteKeys {
+public class HandlerKeys {
 
     private static final String MSG_TYPE = "MsgType";
 
