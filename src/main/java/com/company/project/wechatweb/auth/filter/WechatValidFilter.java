@@ -22,9 +22,9 @@ import java.util.Map;
  *
  * @author wangzhj
  */
-public class WechatValidityFilter extends OncePerRequestFilter {
+public class WechatValidFilter extends OncePerRequestFilter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatValidityFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WechatValidFilter.class);
 
     private static final String PARAM_SIGNATURE = "signature";
 
@@ -39,27 +39,28 @@ public class WechatValidityFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
-        //有效性验证
         String method = request.getMethod().toUpperCase();
-        if (Objects.equal("GET", method) && isValidity(request)) {
-            if (!isSign(request)) {
+        if (Objects.equal("GET", method) && isValid(request)) {
+            //有效性验证
+            if (!isSignOk(request)) {
                 LOGGER.info("签名验证未通过！");
                 return;
             }
             LOGGER.info("签名验证通过！");
             HttpWrites.write(response, getEchostr(request));
+        } else {
+            //其他
+            filterChain.doFilter(request, response);
         }
-        //继续执行
-        filterChain.doFilter(request, response);
     }
 
-    private boolean isValidity(HttpServletRequest request) {
+    private boolean isValid(HttpServletRequest request) {
         Map<String, Object> params = request.getParameterMap();
         return params.containsKey(PARAM_SIGNATURE) && params.containsKey(PARAM_TIME_STAMP) &&
                 params.containsKey(PARAM_NONCE) && params.containsKey(PARAM_ECHO_STR);
     }
 
-    private boolean isSign(HttpServletRequest request) {
+    private boolean isSignOk(HttpServletRequest request) {
         //字典排序
         String[] src = {TOKEN, getTimestamp(request), getNonce(request)};
         Arrays.sort(src);
