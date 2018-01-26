@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wangzhj
  */
+@Deprecated
 @Controller
 public class WechatOAuthApi {
 
