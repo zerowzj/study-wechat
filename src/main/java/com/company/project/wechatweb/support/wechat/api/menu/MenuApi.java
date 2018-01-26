@@ -28,12 +28,13 @@ public class MenuApi {
      */
     public static void createMenu(String json) {
         LOGGER.info("创建菜单===>{}", json);
-        //生成URL
-        StringBuffer url = new StringBuffer(CREATE_URL);
-        url.append("?access_token=");
-        url.append(TokenApi.getAccessToken());
-        //
-        HttpRequest request = HttpRequest.post(url.toString()).send(json);
+        //URL
+        StringBuffer myUrl = new StringBuffer(CREATE_URL);
+        myUrl.append("?access_token=")
+                .append(TokenApi.getAccessToken());
+        //请求
+        HttpRequest request = HttpRequest.post(myUrl).send(json);
+        //响应
         if (request.ok()) {
             String body = request.body();
             LOGGER.info("创建菜单<==={}", body);

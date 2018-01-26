@@ -62,8 +62,7 @@ public class TemplateMsgApi {
                 .append(TokenApi.getAccessToken());
         //请求
         LOGGER.info("发送模板消息==>{}", JsonUtil.toJson(params));
-        HttpRequest request = HttpRequest.post(myUrl, params, false)
-                .contentType(HttpRequest.CONTENT_TYPE_JSON, HttpRequest.CHARSET_UTF8)
+        HttpRequest request = HttpRequest.post(myUrl)
                 .send(JsonUtil.toJson(params));
         //响应
         LOGGER.info("status code={}", request.code());
