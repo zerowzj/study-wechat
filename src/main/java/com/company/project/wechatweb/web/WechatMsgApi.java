@@ -5,9 +5,9 @@ import com.company.project.wechatweb.service.wechat.msg.Msg;
 import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.company.project.wechatweb.support.util.HttpServlets;
 import com.company.project.wechatweb.support.util.XStreamUtil;
-import com.company.project.wechatweb.support.wechat.msg.MsgParser;
 import com.company.project.wechatweb.support.wechat.handler.HandlerFactory;
 import com.company.project.wechatweb.support.wechat.handler.HandlerKeys;
+import com.company.project.wechatweb.support.wechat.msg.MsgParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.support.AopUtils;
@@ -25,14 +25,14 @@ import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
- * Wechat Api
+ * 微信Msg Api
  *
  * @author wangzhj
  */
 @Controller
-public class WechatApi implements ApplicationContextAware {
+public class WechatMsgApi implements ApplicationContextAware {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatApi.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(WechatMsgApi.class);
 
     private static ApplicationContext cxt;
 

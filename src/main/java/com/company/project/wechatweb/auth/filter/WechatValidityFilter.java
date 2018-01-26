@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * 微信有效性验证Filter
+ * 有效性验证Filter
  *
  * @author wangzhj
  */

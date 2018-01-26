@@ -50,10 +50,6 @@ public class HandlerFactory {
      * @return String
      */
     public static String getBeanName(String key) {
-        String beanName = BEAN_MAP.get(key);
-        if (beanName == null) {
-            throw new IllegalStateException("未获取到key=[" + key + "]的Bean Name");
-        }
-        return beanName;
+        return BEAN_MAP.get(key);
     }
 }

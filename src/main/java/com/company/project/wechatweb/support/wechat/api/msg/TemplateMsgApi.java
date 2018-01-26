@@ -61,13 +61,13 @@ public class TemplateMsgApi {
         myUrl.append("?access_token=");
         myUrl.append(TokenApi.getAccessToken());
         //请求
-        LOGGER.info("发送模板消息===>{}", JsonUtil.toJson(data));
+        LOGGER.info("发送模板消息==>{}", JsonUtil.toJson(data));
         HttpRequest request = HttpRequest.post(myUrl)
                 .contentType("application/json", "UTF-8")
                 .send(JsonUtil.toJson(body));
         LOGGER.info("status code={}", request.code());
         if (request.ok()) {
-            LOGGER.info("发送模板消息<==={}", request.body());
+            LOGGER.info("发送模板消息<=={}", request.body());
         }
     }
 }

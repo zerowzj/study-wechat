@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 微信授权Filter
+ * 授权Filter
  *
  * @author wangzhj
  */
@@ -29,7 +29,7 @@ public class WechatAuthFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         LOGGER.info("url==>{}", request.getRequestURI());
-        LOGGER.info("QueryString==>{}", request.getQueryString());
+        LOGGER.info("query string==>{}", request.getQueryString());
         try {
             //获取OpenId
             String code = getCode(request);
