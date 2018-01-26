@@ -12,7 +12,7 @@ public class DemoController {
 
     @RequestMapping("/test")
     public ModelAndView demo(HttpServletRequest request) {
-        return new ModelAndView("test");
+        return new ModelAndView("index");
     }
 
     @RequestMapping("/test2")

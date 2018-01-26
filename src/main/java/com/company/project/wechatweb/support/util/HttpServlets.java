@@ -31,8 +31,8 @@ public class HttpServlets {
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
-            Closeables.closeQuietly(is);
             Closeables.closeQuietly(reader);
+            Closeables.closeQuietly(is);
         }
         return sb.toString();
     }
