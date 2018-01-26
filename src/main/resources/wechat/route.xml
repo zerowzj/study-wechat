@@ -17,7 +17,7 @@
     <!--         消息         -->
     <!-- ==================== -->
     <!-- 文本 -->
-    <!--<route msgType="text" bean="textHandler"/>-->
+    <route msgType="text" bean="textHandler"/>
     <!-- 图片 -->
     <!--<route msgType="image" bean="imageHandler"/>-->
 </routes>
