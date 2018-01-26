@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 按钮
+ * 微信按钮
  *
  * @author wangzhj
  */

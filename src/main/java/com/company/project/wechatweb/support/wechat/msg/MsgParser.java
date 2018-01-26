@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 微信消息解析器
+ * 微信Msg解析器
  *
  * @author wangzhj
  */

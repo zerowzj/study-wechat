@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 菜单解析器
+ * 微信Menu解析器
  *
  * @author wangzhj
  */

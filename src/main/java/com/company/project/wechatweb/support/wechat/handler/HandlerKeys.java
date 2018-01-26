@@ -6,7 +6,7 @@ import com.google.common.base.Strings;
 import java.util.Map;
 
 /**
- * Handler Key
+ * 微信Msg Handler Key
  *
  * @author wangzhj
  */
