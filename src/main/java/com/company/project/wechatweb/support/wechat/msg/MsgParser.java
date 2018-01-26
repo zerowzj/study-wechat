@@ -55,9 +55,7 @@ public class MsgParser {
     public static void main(String[] args)throws Exception {
         String path = "D:\\project\\my\\wechat-web\\src\\main\\resources\\msg.xml";
         ByteSource byteSource = Files.asByteSource(new File(path));
-
         Map<String, String> d = parse(byteSource.asCharSource(Charset.defaultCharset()).read());
-
         System.out.println(d);
     }
 }
