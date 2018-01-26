@@ -1,5 +1,6 @@
 package com.company.project.wechatweb.web;
 
+import com.company.project.wechatweb.support.util.HttpServlets;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -25,8 +26,9 @@ public class WechatOAuthApi {
     @RequestMapping("/wechat/oauth")
     public void dispatch(HttpServletRequest request, HttpServletResponse response) {
         try {
-            response.sendRedirect("");
+            HttpServlets.sendRedirect(response, "");
         } catch (Exception ex) {
+            throw ex;
         }
     }
 }

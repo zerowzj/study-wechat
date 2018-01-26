@@ -29,6 +29,6 @@ public class TextHandler extends BaseHandler<TextMsg> {
         Map<String, Value> data = Maps.newHashMap();
         data.put("mykey", new Value("100元"));
 
-        TemplateMsgApi.send(openId, "_NRejXL6EnsJ92RbqZKS8hKb6xt7I9UFWzpxChX9o2U", "http://www.sohu.com");
+        TemplateMsgApi.send(openId, "_NRejXL6EnsJ92RbqZKS8hKb6xt7I9UFWzpxChX9o2U", data);
     }
 }

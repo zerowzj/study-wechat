@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 微信Msg Handler工厂
+ * 微信Msg Handler Factory
  *
  * @author wangzhj
  */

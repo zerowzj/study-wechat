@@ -41,7 +41,7 @@ public class WechatMsgApi implements ApplicationContextAware {
         try {
             //请求体
             String xmlBody = HttpServlets.getBodyString(request);
-            LOGGER.info("{}", xmlBody);
+            LOGGER.info("{}", Dom4jUtil.format(xmlBody));
             //xml ==> map
             Map<String, String> xmlMap = MsgParser.parse(xmlBody);
             //key ==> name ==> bean ==> target

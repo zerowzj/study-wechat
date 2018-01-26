@@ -3,6 +3,7 @@ package com.company.project.wechatweb.support.util;
 import com.google.common.io.Closeables;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,5 +36,17 @@ public class HttpServlets {
             Closeables.closeQuietly(is);
         }
         return sb.toString();
+    }
+
+    /**
+     * @param response
+     * @return location
+     */
+    public static void sendRedirect(HttpServletResponse response, String location) {
+        try {
+            response.sendRedirect(location);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }

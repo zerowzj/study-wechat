@@ -47,27 +47,37 @@ public class TemplateMsgApi {
         Preconditions.checkNotNull(openId);
         Preconditions.checkNotNull(templateId);
         //参数
-        Map<String, Object> body = Maps.newHashMap();
-        body.put("touser", openId);
-        body.put("template_id", templateId);
+        Map<String, Object> params = Maps.newHashMap();
+        params.put("touser", openId);
+        params.put("template_id", templateId);
         if (!Strings.isNullOrEmpty(url)) {
-            body.put("url", url);
+            params.put("url", url);
         }
-        if(data != null){
-            body.put("data", data);
+        if (data != null) {
+            params.put("data", data);
         }
-        //Url
+        //URL
         StringBuffer myUrl = new StringBuffer(URL);
-        myUrl.append("?access_token=");
-        myUrl.append(TokenApi.getAccessToken());
+        myUrl.append("?access_token=")
+                .append(TokenApi.getAccessToken());
         //请求
-        LOGGER.info("发送模板消息==>{}", JsonUtil.toJson(data));
-        HttpRequest request = HttpRequest.post(myUrl)
-                .contentType("application/json", "UTF-8")
-                .send(JsonUtil.toJson(body));
+        LOGGER.info("发送模板消息==>{}", JsonUtil.toJson(params));
+        HttpRequest request = HttpRequest.post(myUrl, params, false)
+                .contentType(HttpRequest.CONTENT_TYPE_JSON, HttpRequest.CHARSET_UTF8)
+                .send(JsonUtil.toJson(params));
+        //响应
         LOGGER.info("status code={}", request.code());
         if (request.ok()) {
             LOGGER.info("发送模板消息<=={}", request.body());
         }
+    }
+
+    public static void main(String[] args) {
+        String openId = "oeAbiwxhpKI3NHeE3rJOywaLsN1g";
+        String templateId = "_NRejXL6EnsJ92RbqZKS8hKb6xt7I9UFWzpxChX9o2U";
+        String url = "";
+        Map<String, Value> data = Maps.newHashMap();
+        data.put("mykey", new Value("10000"));
+        send(openId, templateId, url, data);
     }
 }
