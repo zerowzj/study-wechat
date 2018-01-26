@@ -4,7 +4,6 @@ import com.company.project.wechatweb.support.util.HttpWrites;
 import com.company.project.wechatweb.support.util.WechatCfg;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
-import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,8 +60,10 @@ public class WechatValidityFilter extends OncePerRequestFilter {
     }
 
     private boolean isSign(HttpServletRequest request) {
+        //字典排序
         String[] src = {TOKEN, getTimestamp(request), getNonce(request)};
         Arrays.sort(src);
+        //比较
         String mySrc = Joiner.on("").join(src);
         String mySign = DigestUtils.sha1Hex(mySrc);
         if (Objects.equal(mySign, getSignature(request))) {
