@@ -51,15 +51,15 @@ public class TokenApi {
         LOGGER.info("获取access token==>{}", JsonUtil.toJson(params));
         HttpRequest request = HttpRequest.get(URL, params, false);
         LOGGER.info("status code={}", request.code());
-        TokenResp token = null;
+        TokenResp tokenResp = null;
         if (request.ok()) {
             String body = request.body();
             LOGGER.info("获取access token<=={}", body);
-            token = JsonUtil.fromJson(body, TokenResp.class);
+            tokenResp = JsonUtil.fromJson(body, TokenResp.class);
         }
-        if (token != null && token.ok()) {
-            overTimeMillis = System.currentTimeMillis() + token.getExpires_in() * 1000;
-            accessToken = token.getAccess_token();
+        if (tokenResp != null && tokenResp.ok()) {
+            overTimeMillis = System.currentTimeMillis() + tokenResp.getExpires_in() * 1000;
+            accessToken = tokenResp.getAccess_token();
         }
     }
 
