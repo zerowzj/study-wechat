@@ -45,7 +45,7 @@ public class WechatApi implements ApplicationContextAware {
             //xml ==> map
             Map<String, String> xmlMap = MsgParser.parse(xmlBody);
             //key ==> name ==> bean ==> target
-            String key = HandlerKeys.keyOfBean(xmlMap);
+            String key = HandlerKeys.keyOfHandler(xmlMap);
             String name = HandlerFactory.getBeanName(key);
             Handler handler = getHandler(name);
             Class clazz = AopUtils.getTargetClass(handler);

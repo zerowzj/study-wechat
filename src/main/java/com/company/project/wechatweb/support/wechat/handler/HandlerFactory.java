@@ -18,7 +18,7 @@ public class HandlerFactory {
     //命名空间
     private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/handlers";
     //XPath
-    private static final String XPATH_ROUTE = "/xmlns:routes/xmlns:route";
+    private static final String XPATH_ROUTE = "/xmlns:handlers/xmlns:handler";
 
     private static final String FILE = "wechat/handler-config.xml";
 
