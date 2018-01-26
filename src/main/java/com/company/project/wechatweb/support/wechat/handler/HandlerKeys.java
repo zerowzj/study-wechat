@@ -6,7 +6,7 @@ import com.google.common.base.Strings;
 import java.util.Map;
 
 /**
- * 路由Key
+ * Handler Key
  *
  * @author wangzhj
  */
@@ -20,15 +20,22 @@ public class HandlerKeys {
 
     private static final char SEPARATOR = '_';
 
+    public static String keyOfHandler(Map<String, String> xmlMap) {
+        String msgType = xmlMap.get(MSG_TYPE);
+        String event = xmlMap.get(EVENT);
+        String eventKey = xmlMap.get(EVENT_KEY);
+        return keyOfHandler(msgType, event, eventKey);
+    }
+
     /**
-     * 获取Bean Key
+     * 获取Handler Key
      *
      * @param msgType
      * @param event
      * @param eventKey
      * @return String
      */
-    public static String keyOfBean(String msgType, String event, String eventKey) {
+    public static String keyOfHandler(String msgType, String event, String eventKey) {
         Joiner joiner = Joiner.on(SEPARATOR).skipNulls();
         String key;
         if ("VIEW".equals(event)) {
@@ -37,18 +44,5 @@ public class HandlerKeys {
             key = joiner.join(msgType, event, Strings.emptyToNull(eventKey));
         }
         return key;
-    }
-
-    /**
-     * 获取Bean Key
-     *
-     * @param xmlMap
-     * @return String
-     */
-    public static String keyOfBean(Map<String, String> xmlMap) {
-        String msgType = xmlMap.get(MSG_TYPE);
-        String event = xmlMap.get(EVENT);
-        String eventKey = xmlMap.get(EVENT_KEY);
-        return keyOfBean(msgType, event, eventKey);
     }
 }

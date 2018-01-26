@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 路由工厂
+ * Handler工厂
  *
  * @author wangzhj
  */
 public class HandlerFactory {
 
     //命名空间
-    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/handler";
+    private static final String XPATH_NAME_SPACE_URL = "http://www.company.cn/handlers";
     //XPath
     private static final String XPATH_ROUTE = "/xmlns:routes/xmlns:route";
 
@@ -36,7 +36,7 @@ public class HandlerFactory {
             String event = Dom4jUtil.attrValue(ele, "event");
             String eventKey = Dom4jUtil.attrValue(ele, "eventKey");
 
-            String key = HandlerKeys.keyOfBean(msgType, event, eventKey);
+            String key = HandlerKeys.keyOfHandler(msgType, event, eventKey);
             String bean = Dom4jUtil.attrValue(ele, "bean");
 
             BEAN_MAP.put(key, bean);
