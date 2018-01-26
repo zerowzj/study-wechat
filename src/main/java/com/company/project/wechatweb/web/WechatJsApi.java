@@ -9,10 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+/**
+ * 微信Js Api
+ *
+ * @author wangzhj
+ */
 @RestController
 @RequestMapping("/wechatjs/")
 public class WechatJsApi {
 
+    /**
+     * 获取
+     */
     @RequestMapping("/getConfig")
     public Map<String, String> getConfig(HttpServletRequest request) {
         Map<String, String> data = Maps.newHashMap();
