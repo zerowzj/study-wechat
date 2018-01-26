@@ -3,7 +3,6 @@ package com.company.project.wechatweb.auth.filter;
 import com.company.project.wechatweb.auth.OpenIds;
 import com.company.project.wechatweb.support.wechat.api.token.AuthTokenApi;
 import com.company.project.wechatweb.support.wechat.api.token.AuthTokenResp;
-import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -33,10 +32,6 @@ public class WechatAuthFilter extends OncePerRequestFilter {
         try {
             //获取OpenId
             String code = getCode(request);
-            if (Strings.isNullOrEmpty(code)) {
-                response.sendRedirect("  ");
-                return;
-            }
             LOGGER.info("code={}", code);
             AuthTokenResp token = AuthTokenApi.getAccessToken(code);
             String openId = token.getOpenid();
