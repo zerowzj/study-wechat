@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<routes xmlns="http://www.company.cn/handlers"
+<handlers xmlns="http://www.company.cn/handlers"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.company.cn/handlers /META-INF/handlers.xsd">
     <!-- ==================== -->
-    <!--          事件        -->
+    <!--         事件         -->
     <!-- ==================== -->
     <!-- 关注/取消关注 -->
-    <route msgType="event" event="subscribe" bean="subscribeHandler"/>
-    <route msgType="event" event="unsubscribe" bean="unsubscribeHandler"/>
+    <handler msgType="event" event="subscribe" bean="subscribeHandler"/>
+    <handler msgType="event" event="unsubscribe" bean="unsubscribeHandler"/>
     <!-- 跳转链接 -->
     <!--<handler msgType="event" event="VIEW" bean="viewHandler"/>-->
     <!-- 拉取消息 -->
@@ -17,7 +17,7 @@
     <!--         消息         -->
     <!-- ==================== -->
     <!-- 文本 -->
-    <route msgType="text" bean="textHandler"/>
+    <handler msgType="text" bean="textHandler"/>
     <!-- 图片 -->
     <!--<handler msgType="image" bean="imageHandler"/>-->
-</routes>
+</handlers>
