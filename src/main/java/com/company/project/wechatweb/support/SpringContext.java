@@ -4,6 +4,11 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+/**
+ * Spring 上下文
+ *
+ * @author wangzhj
+ */
 public class SpringContext implements ApplicationContextAware {
 
     private static ApplicationContext CXT;

@@ -61,4 +61,7 @@
     <!-- ==================== -->
     <!--     异常解析器    -->
     <!-- ==================== -->
+
+
+    <bean class="com.company.project.wechatweb.support.SpringContext"/>
 </beans>
