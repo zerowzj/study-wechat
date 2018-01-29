@@ -34,8 +34,6 @@ public class WechatMsgApi {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WechatMsgApi.class);
 
-    private static ApplicationContext cxt;
-
     @RequestMapping("/wechat/msg")
     public ResponseEntity<Void> dispatch(HttpServletRequest request) {
         try {
