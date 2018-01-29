@@ -1,5 +1,10 @@
 package com.company.project.wechatweb.support.wechat.config;
 
+import com.fasterxml.uuid.Generators;
+import org.joda.time.DateTime;
+
+import java.util.UUID;
+
 /**
  * 微信Js配置
  *
@@ -13,7 +18,8 @@ public final class WechatJsParams {
      * @return String
      */
     public static String createTimestamp() {
-        return "";
+        long timestamp = DateTime.now().getMillis();
+        return String.valueOf(timestamp);
     }
 
     /**
@@ -22,6 +28,16 @@ public final class WechatJsParams {
      * @return String
      */
     public static String createNonceStr() {
+        UUID uuid = Generators.timeBasedGenerator().generate();
+        uuid.timestamp();
         return "";
+    }
+
+    public static void main(String[] args) {
+        UUID uuid = Generators.timeBasedGenerator().generate();
+        uuid.timestamp();
+        System.out.println(uuid);
+        System.out.println(DateTime.now().getMillis());
+        System.out.println(System.currentTimeMillis());
     }
 }
