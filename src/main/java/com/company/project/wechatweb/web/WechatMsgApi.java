@@ -9,6 +9,7 @@ import com.company.project.wechatweb.support.util.XStreamUtil;
 import com.company.project.wechatweb.support.wechat.handler.HandlerFactory;
 import com.company.project.wechatweb.support.wechat.handler.HandlerKeys;
 import com.company.project.wechatweb.support.wechat.msg.MsgParser;
+import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.support.AopUtils;
@@ -46,11 +47,15 @@ public class WechatMsgApi {
             //key ==> name ==> bean ==> target
             String key = HandlerKeys.keyOfHandler(xmlMap);
             String name = HandlerFactory.getBeanName(key);
-            Handler handler = SpringContext.getBean(name);
-            Class clazz = AopUtils.getTargetClass(handler);
-            //执行
-            Msg msg = XStreamUtil.fromXML(xmlBody, getMsgClazz(clazz));
-            handler.doHandle(msg);
+            if (!Strings.isNullOrEmpty(name)) {
+                Handler handler = SpringContext.getBean(name);
+                Class clazz = AopUtils.getTargetClass(handler);
+                //执行
+                Msg msg = XStreamUtil.fromXML(xmlBody, getMsgClazz(clazz));
+                handler.doHandle(msg);
+            } else {
+                LOGGER.info("未获取key=[{}]的Bean！", key);
+            }
         } catch (Exception ex) {
             throw ex;
         }
