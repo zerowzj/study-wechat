@@ -20,6 +20,8 @@ public class WechatJsApi {
 
     /**
      * 获取
+     *
+     * @param request
      */
     @RequestMapping("/getConfig")
     public Map<String, String> getConfig(HttpServletRequest request) {

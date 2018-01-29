@@ -2,6 +2,7 @@ package com.company.project.wechatweb.web;
 
 import com.company.project.wechatweb.service.wechat.handler.Handler;
 import com.company.project.wechatweb.service.wechat.msg.Msg;
+import com.company.project.wechatweb.support.SpringContext;
 import com.company.project.wechatweb.support.util.Dom4jUtil;
 import com.company.project.wechatweb.support.util.HttpServlets;
 import com.company.project.wechatweb.support.util.XStreamUtil;
@@ -11,9 +12,7 @@ import com.company.project.wechatweb.support.wechat.msg.MsgParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.support.AopUtils;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -30,7 +29,7 @@ import java.util.Map;
  * @author wangzhj
  */
 @Controller
-public class WechatMsgApi implements ApplicationContextAware {
+public class WechatMsgApi {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WechatMsgApi.class);
 
@@ -47,7 +46,7 @@ public class WechatMsgApi implements ApplicationContextAware {
             //key ==> name ==> bean ==> target
             String key = HandlerKeys.keyOfHandler(xmlMap);
             String name = HandlerFactory.getBeanName(key);
-            Handler handler = getHandler(name);
+            Handler handler = SpringContext.getBean(name);
             Class clazz = AopUtils.getTargetClass(handler);
             //执行
             Msg msg = XStreamUtil.fromXML(xmlBody, getMsgClazz(clazz));
@@ -56,16 +55,6 @@ public class WechatMsgApi implements ApplicationContextAware {
             throw ex;
         }
         return new ResponseEntity(HttpStatus.OK);
-    }
-
-    /**
-     * 获取消息Handler
-     */
-    private <T> T getHandler(String name) {
-        if (!cxt.containsBean(name)) {
-            throw new IllegalStateException("未包含[" + name + "]的Bean！");
-        }
-        return (T) cxt.getBean(name);
     }
 
     /**
@@ -81,10 +70,5 @@ public class WechatMsgApi implements ApplicationContextAware {
             }
         }
         return clazz;
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        cxt = applicationContext;
     }
 }
