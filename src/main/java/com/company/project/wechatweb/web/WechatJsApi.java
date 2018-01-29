@@ -30,7 +30,7 @@ public class WechatJsApi {
      * 获取配置信息
      *
      * @param request
-     * @return Map<String ,       String>
+     * @return Map<String                                                                                                                                                                                                                                                               ,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               String>
      */
     @RequestMapping("/getConfig")
     public Map<String, String> getConfig(HttpServletRequest request) {
@@ -40,16 +40,21 @@ public class WechatJsApi {
             throw new IllegalStateException("");
         }
         //计算签名
-        Map<String, String> data = Maps.newTreeMap();
-        data.put("jsApiTicket", TicketApi.getTicket());
-        data.put("nonceStr", WechatJsParams.createNonceStr());
-        data.put("timestamp", WechatJsParams.createTimestamp());
-        data.put("url", url);
-        String src = Joiner.on("&").withKeyValueSeparator("=").join(data);
+        Map<String, String> srcData = Maps.newTreeMap();
+        srcData.put("jsapi_ticket", TicketApi.getTicket());
+        String nonceStr = WechatJsParams.createNonceStr();
+        srcData.put("noncestr", nonceStr);
+        String timestamp = WechatJsParams.createTimestamp();
+        srcData.put("timestamp", timestamp);
+        srcData.put("url", url);
+        String src = Joiner.on("&").withKeyValueSeparator("=").join(srcData);
         String sign = DigestUtils.sha1Hex(src);
-        //其他参数
-        data.put("signature", sign);
+        //
+        Map<String, String> data = Maps.newTreeMap();
         data.put("appId", WechatCfg.getAppId());
+        data.put("nonceStr", nonceStr);
+        data.put("timestamp", timestamp);
+        data.put("signature", sign);
 
         return data;
     }
