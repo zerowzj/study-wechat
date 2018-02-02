@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 授权Filter
+ * 认证Filter
  *
  * @author wangzhj
  */
-public class WechatAuthFilter extends OncePerRequestFilter {
+public class AuthFilter extends OncePerRequestFilter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(WechatAuthFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthFilter.class);
 
     private static final String PARAM_CODE = "code";
 
@@ -33,7 +33,7 @@ public class WechatAuthFilter extends OncePerRequestFilter {
         try {
             //获取OpenId
             String code = getCode(request);
-            if(!Strings.isNullOrEmpty(code)){
+            if (!Strings.isNullOrEmpty(code)) {
                 LOGGER.info("code={}", code);
                 AuthTokenResp token = AuthTokenApi.getAccessToken(code);
                 String openId = token.getOpenid();
