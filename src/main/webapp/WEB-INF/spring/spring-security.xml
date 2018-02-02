@@ -20,5 +20,5 @@
     <!--      自定义过滤器     -->
     <!-- ==================== -->
     <bean id="wechatValidityFilter" class="com.company.project.wechatweb.auth.filter.WechatValidFilter"/>
-    <bean id="wechatAuthFilter" class="com.company.project.wechatweb.auth.filter.WechatAuthFilter"/>
+    <bean id="wechatAuthFilter" class="com.company.project.wechatweb.auth.filter.AuthFilter"/>
 </beans>
