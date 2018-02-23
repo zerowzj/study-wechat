@@ -2,7 +2,12 @@ package com.company.project.wechatweb.support.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonUtil {
+/**
+ * Json Util
+ *
+ * @author wangzhj
+ */
+public abstract class JsonUtil {
 
     /**
      * 对象转Json

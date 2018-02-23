@@ -10,7 +10,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
-public class HttpServlets {
+/**
+ * Http Servlet
+ *
+ * @author wangzhj
+ */
+public abstract class HttpServlets {
 
     /**
      * 获取请求实体

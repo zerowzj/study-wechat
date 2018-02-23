@@ -5,8 +5,12 @@ import com.google.common.io.Closeables;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
+/**
+ * Http Write
+ *
+ * @author wangzhj
+ */
 public class HttpWrites {
-
 
     private static final String CHARSET_UTF_8 = "UTF-8";
 
