@@ -4,13 +4,13 @@ import com.company.project.wechatweb.support.util.JsonUtil;
 import com.company.project.wechatweb.support.wechat.config.WechatCfg;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.common.base.Strings;
-import com.google.common.cache.Cache;
-import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Token Api
@@ -23,11 +23,20 @@ public class TokenApi {
 
     private static final String URL = "https://api.weixin.qq.com/cgi-bin/token";
 
+    /* Token */
     private static String ACCESS_TOKEN;
-
+    /* 过期时间（毫秒） */
     private static long OVER_TIME_MILLIS = -1;
 
-    private static LoadingCache CACHE;
+    static {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+
+            }
+        }, 7200 * 1000);
+    }
 
     /**
      * 获取Access Token
