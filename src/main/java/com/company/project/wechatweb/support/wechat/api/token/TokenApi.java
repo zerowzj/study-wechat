@@ -4,6 +4,8 @@ import com.company.project.wechatweb.support.util.JsonUtil;
 import com.company.project.wechatweb.support.wechat.config.WechatCfg;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.common.base.Strings;
+import com.google.common.cache.Cache;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +23,11 @@ public class TokenApi {
 
     private static final String URL = "https://api.weixin.qq.com/cgi-bin/token";
 
-    private static String accessToken;
+    private static String ACCESS_TOKEN;
 
-    private static long overTimeMillis = -1;
+    private static long OVER_TIME_MILLIS = -1;
+
+    private static LoadingCache CACHE;
 
     /**
      * 获取Access Token
@@ -32,13 +36,13 @@ public class TokenApi {
      */
     public synchronized static String getAccessToken() {
         long now = System.currentTimeMillis();
-        if (overTimeMillis <= now) {
+        if (OVER_TIME_MILLIS <= now) {
             doGet();
         }
-        if (Strings.isNullOrEmpty(accessToken)) {
+        if (Strings.isNullOrEmpty(ACCESS_TOKEN)) {
             throw new IllegalStateException("未获取到[token]");
         }
-        return accessToken;
+        return ACCESS_TOKEN;
     }
 
     private synchronized static void doGet() {
@@ -58,8 +62,8 @@ public class TokenApi {
             tokenResp = JsonUtil.fromJson(body, TokenResp.class);
         }
         if (tokenResp != null && tokenResp.ok()) {
-            overTimeMillis = System.currentTimeMillis() + tokenResp.getExpires_in() * 1000;
-            accessToken = tokenResp.getAccess_token();
+            OVER_TIME_MILLIS = System.currentTimeMillis() + tokenResp.getExpires_in() * 1000;
+            ACCESS_TOKEN = tokenResp.getAccess_token();
         }
     }
 
