@@ -24,14 +24,29 @@ public final class WechatCfg {
         }
     }
 
+    /**
+     * 获取AppId
+     *
+     * @return String
+     */
     public static String getAppId() {
         return PROP.getProperty("app_id");
     }
 
+    /**
+     * 获取Secret
+     *
+     * @return String
+     */
     public static String getSecret() {
         return PROP.getProperty("secret");
     }
 
+    /**
+     * 获取Token
+     *
+     * @return String
+     */
     public static String getToken() {
         return PROP.getProperty("token");
     }
