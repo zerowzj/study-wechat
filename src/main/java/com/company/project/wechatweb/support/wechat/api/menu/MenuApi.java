@@ -27,7 +27,7 @@ public class MenuApi {
      * @param json
      */
     public static void createMenu(String json) {
-        LOGGER.info("创建菜单===>{}", json);
+        LOGGER.info("create menu===>{}", json);
         //URL
         StringBuffer myUrl = new StringBuffer(CREATE_URL);
         myUrl.append("?access_token=")
@@ -37,7 +37,7 @@ public class MenuApi {
         //响应
         if (request.ok()) {
             String body = request.body();
-            LOGGER.info("创建菜单<==={}", body);
+            LOGGER.info("create menu<==={}", body);
         }
     }
 
@@ -45,7 +45,7 @@ public class MenuApi {
      * 获取菜单
      */
     public static void getMenu() {
-        LOGGER.info("获取菜单===>{}");
+        LOGGER.info("get menu===>{}");
         //参数
         Map<String, String> params = Maps.newHashMap();
         params.put("access_token", TokenApi.getAccessToken());
@@ -54,7 +54,7 @@ public class MenuApi {
         //响应
         if (request.ok()) {
             String body = request.body();
-            LOGGER.info("获取菜单<==={}", body);
+            LOGGER.info("get menu<==={}", body);
         }
     }
 
